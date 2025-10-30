@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 47.4% 11.2%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-gradient-page text-neutral-900 font-primary transition-colors duration-base;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+  
+  .dark body {
+    @apply bg-gray-900 text-gray-100;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Custom component classes following the design system */
+  .btn-primary {
+    @apply bg-primary-500 text-white px-8 py-4 rounded-md font-semibold text-body shadow-sm transition-all duration-fast hover:bg-primary-600 hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-4;
+  }
+  
+  .dark .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-neutral-200 text-neutral-700 px-8 py-4 rounded-md font-semibold text-body bg-transparent transition-all duration-fast hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-4;
+  }
+  
+  .dark .btn-secondary {
+    @apply border-gray-600 text-gray-300 hover:bg-gray-800;
+  }
+
+  .card {
+    @apply bg-neutral-100 rounded-lg border border-neutral-200 shadow-card p-lg transition-all duration-base hover:shadow-card-hover hover:-translate-y-1;
+  }
+  
+  .dark .card {
+    @apply bg-gray-800 border-gray-700 shadow-gray-900/50;
+  }
+  
+  .dark .card:hover {
+    @apply shadow-gray-900/80;
+  }
+
+  .card-hover {
+    @apply transform scale-105;
+  }
+
+  .section-container {
+    @apply max-w-container mx-auto px-sm py-2xl;
+  }
+
+  .text-gradient-hero {
+    background: linear-gradient(135deg, #E6F0FF 0%, #F5F5F5 100%);
+  }
+  
+  .dark .text-gradient-hero {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+
+  .section-fade-in {
+    animation: fade-in 0.3s ease-out;
+    animation-fill-mode: both;
+  }
+
+  .section-fade-in:nth-child(1) { animation-delay: 0ms; }
+  .section-fade-in:nth-child(2) { animation-delay: 100ms; }
+  .section-fade-in:nth-child(3) { animation-delay: 200ms; }
+  .section-fade-in:nth-child(4) { animation-delay: 300ms; }
+  .section-fade-in:nth-child(5) { animation-delay: 400ms; }
+  .section-fade-in:nth-child(6) { animation-delay: 500ms; }
+  
+  /* Interactive Elements */
+  .interactive-card {
+    @apply transform transition-all duration-base hover:scale-105 hover:shadow-card-hover cursor-pointer;
+  }
+  
+  .progress-bar {
+    @apply w-full bg-neutral-200 rounded-full h-2 overflow-hidden;
+  }
+  
+  .dark .progress-bar {
+    @apply bg-gray-700;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-primary-500 to-primary-600 rounded-full transition-all duration-1000 ease-out;
+    animation: progress-fill 2s ease-out forwards;
+  }
+  
+  .counter {
+    @apply font-bold text-primary-600;
+  }
+  
+  .dark .counter {
+    @apply text-primary-400;
+  }
+  
+  .stat-card {
+    @apply text-center p-6 rounded-xl border transition-all duration-base;
+  }
+  
+  .dark .stat-card {
+    @apply border-gray-700 bg-gray-800/50;
+  }
+  
+  .stat-card:hover {
+    @apply scale-105 shadow-lg;
+  }
+  
+  /* Signature Logo Styles */
+  .signature-container {
+    @apply flex items-center;
+  }
+  
+  .signature {
+    font-family: 'Dancing Script', 'Pacifico', 'Brush Script MT', cursive;
+    position: relative;
+    font-style: italic;
+    font-weight: 600;
+    transform: rotate(-5deg);
+    transition: all 0.3s ease;
+  }
+  
+  .signature:hover {
+    transform: rotate(-2deg) scale(1.1);
+  }
+  
+  .signature::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #0066FF, #003D99);
+    transition: width 0.6s ease;
+  }
+  
+  .signature:hover::after {
+    width: 100%;
+  }
+  
+  .animate-signature {
+    animation: signatureDraw 2s ease-in-out;
+  }
+  
+  /* Handwriting Animation for Loading */
+  @keyframes handwrite {
+    0% {
+      opacity: 0;
+      transform: scale(0.9) rotate(-5deg);
+    }
+    30% {
+      opacity: 0.3;
+      transform: scale(0.95) rotate(-2deg);
+    }
+    60% {
+      opacity: 0.7;
+      transform: scale(1) rotate(0deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .animate-handwrite {
+    animation: handwrite 2s ease-in-out;
+  }
+  
+  .animate-fadeInUp {
+    animation: fadeInUp 1.5s ease-out;
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 1s ease-in;
+  }
+  
+  @keyframes signatureDraw {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    50% {
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Enhanced Dark Theme Colors */
+  .dark {
+    color-scheme: dark;
+  }
+  
+  .dark body {
+    background: #0f1419;
+    color: #f1f5f9;
+  }
+  
+  .dark .bg-gradient-page {
+    background: linear-gradient(180deg, #0f1419 0%, #1a1f2e 100%);
+  }
+  
+  .dark .bg-gradient-hero {
+    background: linear-gradient(135deg, #1e293b 0%, #0f1419 100%);
+  }
+  
+  .dark .text-neutral-900 {
+    color: #f1f5f9;
+  }
+  
+  .dark .text-neutral-700 {
+    color: #cbd5e1;
+  }
+  
+  .dark .text-neutral-600 {
+    color: #94a3b8;
+  }
+  
+  .dark .text-neutral-500 {
+    color: #64748b;
+  }
+  
+  /* Force dark mode styles */
+  .dark * {
+    color-scheme: dark;
+  }
+  
+  .dark section {
+    background: #1a1f2e !important;
+  }
+  
+  .dark h1, .dark h2, .dark h3 {
+    color: #f1f5f9 !important;
+  }
+  
+  .dark p {
+    color: #cbd5e1 !important;
+  }
+  
+  .dark .bg-white {
+    background: #374151 !important;
+  }
+  
+  .dark .text-neutral-900 {
+    color: #f1f5f9 !important;
+  }
+  
+  .dark .text-neutral-700 {
+    color: #d1d5db !important;
+  }
+  
+  .dark .text-neutral-600 {
+    color: #9ca3af !important;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Responsive typography adjustments */
+@media (max-width: 768px) {
+  .text-hero {
+    font-size: 48px !important;
+  }
+  
+  .text-title {
+    font-size: 36px !important;
+  }
+  
+  .text-subtitle {
+    font-size: 28px !important;
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #0066FF;
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+img {
+  object-position: top;
+}
+
+.fixed {
+  position: fixed;
+}
