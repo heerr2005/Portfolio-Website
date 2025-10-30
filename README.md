@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 
 ## 🚀 Live Demo
 
-**Portfolio Website**: [Live Demo](https://vkzwlgsip959.space.minimax.io)
+**Portfolio Website**: [Live Demo](https://heer-chotaliya.vercel.app/)
 
 ## ✨ Features
 
