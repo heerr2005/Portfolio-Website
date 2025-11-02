@@ -2,6 +2,8 @@
 
 A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS. Features include interactive data visualizations, dark/light theme toggle, and professional animations.
 
+<img width="1900" height="866" alt="Image" src="https://github.com/user-attachments/assets/f592b074-33c5-421c-baa8-cde08b630540" />
+
 ## 🚀 Live Demo
 
 **Portfolio Website**: [Live Demo](https://heer-chotaliya.vercel.app/)
